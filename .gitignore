@@ -1,3 +1,13 @@
+# Configuración privada del proyecto Django
+django_abm/settings_private.py
+
+# Base de datos SQLite
+db.sqlite3
+
+################################################
+# gitignore por defecto para Python, de GitHub #
+################################################
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

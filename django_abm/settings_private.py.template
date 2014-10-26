@@ -1,0 +1,17 @@
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+# Llave secreta del proyecto Django
+SECRET_KEY = ''
+
+# Configuración de la base de datos
+DATABASES = {
+    'default': {
+        'ENGINE': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
