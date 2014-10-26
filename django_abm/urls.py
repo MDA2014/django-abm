@@ -3,8 +3,6 @@ from django.contrib import admin
 
 from django.views.defaults import *
 
-from .settings import MEDIA_ROOT
-
 
 urlpatterns = patterns('',
     # Examples:
