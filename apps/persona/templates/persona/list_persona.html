@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Proyecto Django MDA - Personas{% endblock title %}
+
+{% block cssprivate %}
+<link href="/media/css/persona/index.css" rel="stylesheet">
+{% endblock cssprivate %}
+
+{% block jsprivate %}
+<script src="/media/js/persona/index.js"></script>
+<script src="/media/js/functions_table.js"></script>
+{% endblock jsprivate %}
+
+{% block content %}
+<div class="container" style="display: none;">
+	<div class="page-header">
+	  <h1>Listado de Personas</h1>
+	</div>
+	<ol class="breadcrumb">
+		<li><a href="/">Home</a></li>
+		<li class="active">Personas</li>
+	</ol>
+	<a href="/persona/new" type="button" id="new_persona" class="btn btn-success "><span class="glyphicon glyphicon-plus">  </span> Nueva Persona</a>
+	<div class="table-responsive">
+		<table class="table table-bordered table-hover">
+	      <thead>
+	        <tr class="active">
+	          <th></th>
+	          <th>Nombre</th>
+	          <th>Apellido</th>
+	          <th>Edad</th>
+	          <th>Operaciones</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      	        
+	      </tbody>
+	    </table>
+	</div>
+    <ul class="pagination center">
+      <li><a href="#">&laquo; Primero</a></li>
+      <li><a href="#">&lt; Anterior</a></li>
+      <li><a href="#">Siguiente &gt;</a></li>
+      <li><a href="#">Último &raquo;</a></li>
+    </ul>
+</div>
+{% endblock content %}
+
+{% block modals %}
+{% include "persona/_modal_direccion.html" %}
+{% endblock modals%}s

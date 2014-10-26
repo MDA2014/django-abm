@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Proyecto Django MDA{% endblock title %}
+
+
+{% block cssprivate %}
+<link href="/media/css/home/index.css" rel="stylesheet">
+{% endblock cssprivate %}
+
+{% block jsprivate %}
+<script src="/media/js/home/index.js"></script>
+{% endblock jsprivate %}
+
+
+{% block listmodulos %}
+<li><a href="/persona">Módulo Persona</a></li>
+{% endblock listmodulos %}
+
+{% block content %}
+<div class="container" style="display: none;">
+	<div class="jumbotron large">
+    	<h1>Proyecto MDA - 2014</h1>
+    	<h2 class="lead bold">Proyecto promoción para la cátedra Dearrollo de software Dirigido por Modelos con Python - Django en el Back-End y Bootstrap en el Front-End.</h2>
+  	</div>
+  	<div class="grid">
+    	<div class="row"><h3>Integrantes</h3></div>
+	    <div class="listview row">
+	    	<div class="col-md-3 col-md-offset-2">
+	    		<a href="#" class="list">
+					<div class="list-content"> Romina Echevarieta</div>
+				</a>
+				<a href="#" class="list">
+					<div class="list-content"> Yanina Morales</div>
+				</a>
+				<a href="#" class="list">
+					<div class="list-content"> Franco Canizo</div>
+				</a>
+			</div>
+			<div class="col-md-3 col-md-offset-2">
+				<a href="#" class="list">
+					<div class="list-content"> Michael Manganiello</div>
+				</a>
+				<a href="#" class="list">
+					<div class="list-content"> Javier Caballero</div>
+				</a>
+				<a href="#" class="list">
+					<div class="list-content"> Walter</div>
+				</a>
+			</div>
+	    </div>
+    </div>
+</div> <!-- /container -->
+
+<footer style="display: none;">
+    <div class="footer">
+    	<p>&copy; Desarrollo de Software Dirigido por Modelos 2014</p>
+	</div>
+</footer>
+{% endblock content %}

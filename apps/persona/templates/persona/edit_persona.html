@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Proyecto Django MDA - Modificar Personas{% endblock title %}
+
+{% block cssprivate %}
+<link href="/media/css/persona/edit.css" rel="stylesheet">
+{% endblock cssprivate %}
+
+{% block jsprivate %}
+<script src="/media/js/persona/edit.js"></script>
+{% endblock jsprivate %}
+
+{% block content%}
+<div class="container" style="display: none;">
+	<div class="page-header">
+	  <h1>Persona<small> Modificar</small></h1>
+	</div>
+	<ol class="breadcrumb">
+		<li><a href="/">Home</a></li>
+		<li><a href="/persona">Persona</a></li>
+		<li class="active">Editar</li>
+	</ol>
+	{% include "persona/_form.html" %}
+</div>
+{% endblock content %}

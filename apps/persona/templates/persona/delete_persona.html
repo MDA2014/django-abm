@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Proyecto Django MDA - Nueva Personas{% endblock title %}
+
+{% block cssprivate %}
+<link href="/media/css/persona/delete.css" rel="stylesheet">
+{% endblock cssprivate %}
+
+{% block jsprivate %}
+<script src="/media/js/persona/delete.js"></script>
+{% endblock jsprivate %}
+
+{% block content%}
+<div class="container" style="display: none;">
+	<div class="page-header">
+	  <h1>Persona<small> Eliminar</small></h1>
+	</div>
+	<ol class="breadcrumb">
+		<li><a href="/">Home</a></li>
+		<li><a href="/persona">Persona</a></li>
+		<li class="active">Eliminar</li>
+	</ol>	
+	<h1>¿Desea realiazar la eliminación?</h1>
+	<div class="botonera" >
+      <button type="submit" class="btn btn-danger ">Eliminar</button>
+      <a href="/persona" class="btn btn-default">Atrás</a>
+    </div>
+
+    <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Datos Persona</h3>
+	    </div>
+	    <div class="panel-body">
+			<ul class="listado_atributos">
+				<li class="col-sm-12">
+					<label class="col-sm-1 control-label">Nombre:</label>
+        			<p class="col-sm-8">Mark</p>
+				</li>
+				<li class="col-sm-12">
+					<label class="col-sm-1 control-label">Apellido:</label>
+        			<p class="col-sm-8">Otto</p>
+				</li>
+				<li class="col-sm-12">
+					<label class="col-sm-1 control-label">Edad:</label>
+        			<p class="col-sm-8">22</p>
+				</li>
+			</ul>    	
+	    </div>
+    </div>
+	
+</div>
+{% endblock content %}
