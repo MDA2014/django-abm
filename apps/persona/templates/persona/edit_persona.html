@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
+
 {% block title %}Proyecto Django MDA - Modificar Personas{% endblock title %}
 
 {% block cssprivate %}
-<link href="/media/css/persona/edit.css" rel="stylesheet">
+<link href="{% static 'persona/css/edit.css' %}" rel="stylesheet">
 {% endblock cssprivate %}
 
 {% block jsprivate %}
-<script src="/media/js/persona/edit.js"></script>
+<script src="{% static 'persona/js/edit.js' %}"></script>
 {% endblock jsprivate %}
 
 {% block content%}

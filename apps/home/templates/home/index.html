@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
 {% block title %}Proyecto Django MDA{% endblock title %}
 
 
 {% block cssprivate %}
-<link href="/media/css/home/index.css" rel="stylesheet">
+<link href="{% static 'home/css/index.css' %}" rel="stylesheet">
 {% endblock cssprivate %}
 
 {% block jsprivate %}
-<script src="/media/js/home/index.js"></script>
+<script src="{% static 'home/js/index.js' %}"></script>
 {% endblock jsprivate %}
 
 

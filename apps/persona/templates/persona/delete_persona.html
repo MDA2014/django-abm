@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
+
 {% block title %}Proyecto Django MDA - Nueva Personas{% endblock title %}
 
 {% block cssprivate %}
-<link href="/media/css/persona/delete.css" rel="stylesheet">
+<link href="{% static 'persona/css/delete.css' %}" rel="stylesheet">
 {% endblock cssprivate %}
 
 {% block jsprivate %}
-<script src="/media/js/persona/delete.js"></script>
+<script src="{% static 'persona/js/delete.js' %}"></script>
 {% endblock jsprivate %}
 
 {% block content%}
