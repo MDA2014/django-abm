@@ -16,11 +16,11 @@ def list_personas_view(request):
                              )
 
 def list_personas_json(request):
-    data = serializers.serialize('json', persona.objects.filter())
+    data = serializers.serialize('json', Persona.objects.filter())
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
 def view_personas_json(request, persona_id):
-    data = serializers.serialize('json', persona.objects.filter(id = persona_id))
+    data = serializers.serialize('json', Persona.objects.filter(id = persona_id))
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
 def new_personas_view(request):
@@ -54,7 +54,7 @@ def edit_personas_view(request, persona_id):
                               context_instance=RequestContext(request),
                              )
 def edit_personas_json(request, persona_id):
-    data = serializers.serialize('json', persona.objects.filter(id = persona_id))
+    data = serializers.serialize('json', Persona.objects.filter(id = persona_id))
     return HttpResponse(data,content_type='application/json; charset=utf-8')
 
 def delete_personas_view(request, persona_id):
@@ -63,5 +63,5 @@ def delete_personas_view(request, persona_id):
                              )
 
 def delete_personas_json(request, persona_id):
-    data = serializers.serialize('json', persona.objects.filter(id = persona_id))
+    data = serializers.serialize('json', Persona.objects.filter(id = persona_id))
     return HttpResponse(data, content_type='application/json; charset=utf-8')
