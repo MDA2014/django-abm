@@ -11,6 +11,7 @@
 
 {% block jsprivate %}
 <script src="{% static 'persona/js/edit.js' %}"></script>
+<script src="{% static 'js/jquery.validate.js' %}"></script>
 {% endblock jsprivate %}
 
 {% block content%}
@@ -20,7 +21,7 @@
 	</div>
 	<ol class="breadcrumb">
 		<li><a href="/">Home</a></li>
-		<li><a href="/persona">Persona</a></li>
+		<li><a href="/persona/">Persona</a></li>
 		<li class="active">Editar</li>
 	</ol>
 	{% include "persona/_form.html" %}

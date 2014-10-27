@@ -20,13 +20,13 @@
 	</div>
 	<ol class="breadcrumb">
 		<li><a href="/">Home</a></li>
-		<li><a href="/persona">Persona</a></li>
+		<li><a href="/persona/">Persona</a></li>
 		<li class="active">Eliminar</li>
-	</ol>	
+	</ol>
 	<h1>¿Desea realiazar la eliminación?</h1>
 	<div class="botonera" >
-      <button type="submit" class="btn btn-danger ">Eliminar</button>
-      <a href="/persona" class="btn btn-default">Atrás</a>
+      <button id="delete_persona" class="btn btn-danger ">Eliminar</button>
+      <a href="/persona/" class="btn btn-default">Atrás</a>
     </div>
 
     <div class="panel panel-default">
@@ -37,19 +37,19 @@
 			<ul class="listado_atributos">
 				<li class="col-sm-12">
 					<label class="col-sm-1 control-label">Nombre:</label>
-        			<p class="col-sm-8">Mark</p>
+        			<p class="col-sm-8" id="persona_nombre"></p>
 				</li>
 				<li class="col-sm-12">
 					<label class="col-sm-1 control-label">Apellido:</label>
-        			<p class="col-sm-8">Otto</p>
+        			<p class="col-sm-8" id="persona_apellido"></p>
 				</li>
 				<li class="col-sm-12">
 					<label class="col-sm-1 control-label">Edad:</label>
-        			<p class="col-sm-8">22</p>
+        			<p class="col-sm-8" id="persona_edad"></p>
 				</li>
-			</ul>    	
+			</ul>
 	    </div>
     </div>
-	
+
 </div>
 {% endblock content %}

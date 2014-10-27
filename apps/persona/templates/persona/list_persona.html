@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 
+
 {% block title %}Proyecto Django MDA - Personas{% endblock title %}
 
 {% block cssprivate %}
@@ -22,6 +23,10 @@
 		<li><a href="/">Home</a></li>
 		<li class="active">Personas</li>
 	</ol>
+	<div class="alert alert-info" role="alert">
+	  <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+	  <p>Se ha realizado el guardado con éxito.</p>
+	</div>
 	<a href="/persona/new" type="button" id="new_persona" class="btn btn-success "><span class="glyphicon glyphicon-plus">  </span> Nueva Persona</a>
 	<div class="table-responsive">
 		<table class="table table-bordered table-hover">
@@ -35,15 +40,15 @@
 	        </tr>
 	      </thead>
 	      <tbody>
-	      	        
+
 	      </tbody>
 	    </table>
 	</div>
     <ul class="pagination center">
-      <li><a href="#">&laquo; Primero</a></li>
-      <li><a href="#">&lt; Anterior</a></li>
-      <li><a href="#">Siguiente &gt;</a></li>
-      <li><a href="#">Último &raquo;</a></li>
+      <li><a id="primero" >&laquo; Primero</a></li>
+      <li><a id="anterior" >&lt; Anterior</a></li>
+      <li><a id="siguiente" >Siguiente &gt;</a></li>
+      <li><a id="ultimo" >Último &raquo;</a></li>
     </ul>
 </div>
 {% endblock content %}
