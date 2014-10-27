@@ -13,20 +13,20 @@ from .models import Persona
 def list_personas_view(request):
     return render_to_response('persona/list_persona.html',
                               context_instance=RequestContext(request),
-                             )
+                              )
 
 def list_personas_json(request):
-    data = serializers.serialize('json', Persona.objects.filter())
+    data = serializers.serialize('json', Persona.objects.all())
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
-def view_personas_json(request, persona_id):
-    data = serializers.serialize('json', Persona.objects.filter(id = persona_id))
+def view_personas_json(request, persona_dni):
+    data = serializers.serialize('json', Persona.objects.get(pk = persona_dni))
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
 def new_personas_view(request):
     return render_to_response('persona/new_persona.html',
                               context_instance=RequestContext(request),
-                             )
+                              )
 
 def new_personas_json(request):
     data = ""
@@ -49,19 +49,20 @@ def new_personas_json(request):
         data = json.dumps(some_data_to_dump)
     return HttpResponse(data,content_type='application/json; charset=utf-8')
 
-def edit_personas_view(request, persona_id):
+def edit_personas_view(request, persona_dni):
     return render_to_response('persona/edit_persona.html',
                               context_instance=RequestContext(request),
-                             )
-def edit_personas_json(request, persona_id):
-    data = serializers.serialize('json', Persona.objects.filter(id = persona_id))
+                              )
+
+def edit_personas_json(request, persona_dni):
+    data = serializers.serialize('json', Persona.objects.get(pk = persona_dni))
     return HttpResponse(data,content_type='application/json; charset=utf-8')
 
-def delete_personas_view(request, persona_id):
+def delete_personas_view(request, persona_dni):
     return render_to_response('persona/delete_persona.html',
                               context_instance=RequestContext(request),
-                             )
+                              )
 
-def delete_personas_json(request, persona_id):
-    data = serializers.serialize('json', Persona.objects.filter(id = persona_id))
+def delete_personas_json(request, persona_dni):
+    data = serializers.serialize('json', Persona.objects.get(pk = persona_dni))
     return HttpResponse(data, content_type='application/json; charset=utf-8')

@@ -15,7 +15,7 @@ urlpatterns = patterns('',
         name  = 'index_personas_json'
     ),
     url(
-        regex = r'^json/view/(?P<persona_id>[\d]+)/$',
+        regex = r'^json/view/(?P<persona_dni>[\d]+)/$',
         view  = views.view_personas_json,
         name  = 'view_personas_json'
     ),
@@ -30,22 +30,22 @@ urlpatterns = patterns('',
         name  = 'new_personas_json'
     ),
     url(
-        regex = r'^edit/(?P<persona_id>[\d]+)/$',
+        regex = r'^edit/(?P<persona_dni>[\d]+)/$',
         view  = views.edit_personas_view,
         name  = 'edit_persona'
     ),
     url(
-        regex = r'^json/edit/(?P<persona_id>[\d]+)/$',
+        regex = r'^json/edit/(?P<persona_dni>[\d]+)/$',
         view  = views.edit_personas_json,
         name  = 'edit_personas_json'
     ),
     url(
-        regex = r'^delete/(?P<persona_id>[\d]+)/$',
+        regex = r'^delete/(?P<persona_dni>[\d]+)/$',
         view  = views.delete_personas_view,
         name  = 'delete_persona'
     ),
     url(
-        regex = r'^json/delete/(?P<persona_id>[\d]+)/$',
+        regex = r'^json/delete/(?P<persona_dni>[\d]+)/$',
         view  = views.delete_personas_json,
         name  = 'delete_personas_json'
     ),
