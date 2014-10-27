@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponse
 from django.core import serializers
 from django.template import RequestContext
@@ -59,16 +59,16 @@ def list_personas_json(request):
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
 def view_personas_json(request, persona_dni):
-    persona = Persona.objects.get(pk = persona_dni)
+    persona = get_object_or_404(Persona, pk=persona_dni)
     data = serializers.serialize('json', [persona])
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
 def edit_personas_json(request, persona_dni):
-    persona = Persona.objects.get(pk = persona_dni)
+    persona = get_object_or_404(Persona, pk=persona_dni)
     data = serializers.serialize('json', [persona])
     return HttpResponse(data,content_type='application/json; charset=utf-8')
 
 def delete_personas_json(request, persona_dni):
-    persona = Persona.objects.get(pk = persona_dni)
+    persona = get_object_or_404(Persona, pk=persona_dni)
     data = serializers.serialize('json', [persona])
     return HttpResponse(data, content_type='application/json; charset=utf-8')
