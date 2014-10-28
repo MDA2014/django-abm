@@ -2,11 +2,11 @@ $(function(){
 	setTimeout(
   		function() {
   			$("body").css("background", "rgba(214, 214, 214, 0.89)");
-			$("body").css("color", "black");
-			$(".loading_wrap").hide();			
-			$(".container").show();
-			$("header").show();
-			$("footer").show();
+        $("body").css("color", "black");
+        $(".loading_wrap").hide();			
+        $(".container").show();
+        $("header").show();
+        $("footer").show();
 		}, 5000);
 });
 
@@ -16,7 +16,7 @@ $(function(){
     e.preventDefault();
     if($(this).valid()){
       var request = $.ajax({
-        url: "/persona/json/new",
+        url: "/persona/json/new/",
         type: "POST",
         data: $( this ).serialize(),
         dataType: "json"
@@ -31,6 +31,7 @@ $(function(){
           $(".alert").removeClass("alert-success");
           $(".alert").addClass("alert-danger");
           $(".alert").show();
+          $('html, body').animate({scrollTop : 0},800);
         }
       });
 
@@ -39,6 +40,7 @@ $(function(){
         $(".alert").removeClass("alert-success");
         $(".alert").addClass("alert-danger");
         $(".alert").show();
+        $('html, body').animate({scrollTop : 0},800);
       });
     }
   });

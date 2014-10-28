@@ -6,6 +6,7 @@ from django.template import RequestContext
 import json
 
 from .models import Persona
+from .models import Domicilio
 
 
 # Create your views here.
@@ -35,11 +36,11 @@ def delete_personas_view(request, persona_dni):
 
 def new_personas_json(request):
     data = ""
-    if request.method == 'POST':
+    if request.method == 'POST':        
         p = Persona()
+        p.dni = request.POST.__getitem__("dni")
         p.nombre = request.POST.__getitem__("nombre")
         p.apellido = request.POST.__getitem__("apellido")
-        p.edad = request.POST.__getitem__("edad")
         p.save()
         if(True):
             some_data_to_dump = {
@@ -60,7 +61,7 @@ def list_personas_json(request):
 
 def view_personas_json(request, persona_dni):
     persona = get_object_or_404(Persona, pk=persona_dni)
-    data = serializers.serialize('json', [persona])
+    data = serializers.serialize('json', [persona, persona.domicilio, persona.domicilio.localidad, persona.domicilio.localidad.provincia])
     return HttpResponse(data, content_type='application/json; charset=utf-8')
 
 def edit_personas_json(request, persona_dni):

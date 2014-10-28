@@ -20,7 +20,9 @@ function loadForm(callback){
 
     $("#persona_nombre").val(data[0].fields.nombre);
     $("#persona_apellido").val(data[0].fields.apellido);
-    $("#persona_edad").val(data[0].fields.edad);
+    $("#domicilio_calle").val(data[1].fields.calle);
+    $("#domicilio_numero").val(data[1].fields.numero);
+    $("#persona_dni").val(data[0].pk);
 
     callback.call();
 

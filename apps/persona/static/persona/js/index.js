@@ -5,7 +5,7 @@ var pag_actual = 0;
 function init(){
 	setTimeout(
 		function() {
-	  			$("body").css("background", "rgba(214, 214, 214, 0.89)");
+	  		$("body").css("background", "rgba(214, 214, 214, 0.89)");
 				$("body").css("color", "black");
 				$(".loading_wrap").hide();			
 				$(".container").show();
@@ -41,6 +41,13 @@ $(function(){
 
 $(function(){
 	$(document).on('click', '.direccion',function(){
+    var id_persona = $(this).attr("data_persona");
+    $.getJSON("/persona/json/view/" + id_persona + "/",function(data){
+      $("#domicilio_calle").val(data[1].fields.calle);
+      $("#domicilio_numero").val(data[1].fields.numero);
+      $("#localidad_nombre").val(data[2].fields.nombre);
+      $("#provincia_nombre").val(data[3].fields.nombre);
+    });
 		$('#modal_direccion').modal("toggle");
 	});
 	$("#primero").on("click", function(){
@@ -85,8 +92,8 @@ $(function(){
 });
 
 function addFila(index, elemento){
-	elementos = '<td>'+ (index + 1) +'</td><td>'+ elemento.fields.nombre +'</td><td>'+ elemento.fields.apellido +'</td><td>'+ elemento.fields.edad +'</td>';
-	botones = '<td><div class="btn-group"><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Relaciones <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a class="direccion">Ver Direccion</a></li></ul></div>'
+	elementos = '<td>'+ (index + 1) +'</td><td>'+ elemento.pk +'</td><td>'+ elemento.fields.nombre +'</td><td>'+ elemento.fields.apellido +'</td>';
+	botones = '<td><div class="btn-group"><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Relaciones <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a data_persona="'+ elemento.pk +'" class="direccion">Ver Direccion</a></li></ul></div>'
 	+ ' <a href="/persona/edit/'+ elemento.pk +'/"  class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>'
 	+ ' <a href="/persona/delete/'+ elemento.pk +'/" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>';
 
