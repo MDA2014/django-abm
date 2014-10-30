@@ -1,15 +1,17 @@
+function init(){
+  setTimeout(
+        function() {
+          $("body").css("background", "rgba(214, 214, 214, 0.89)");
+          $("body").css("color", "black");
+          $(".loading_wrap").hide();			
+          $(".container").show();
+          $("header").show();
+          $("footer").show();
+      }, 5000);
+}
+
 $(function(){
-  loadForm(function(){
-  	setTimeout(
-    		function() {
-    			$("body").css("background", "rgba(214, 214, 214, 0.89)");
-  			$("body").css("color", "black");
-  			$(".loading_wrap").hide();			
-  			$(".container").show();
-  			$("header").show();
-  			$("footer").show();
-  		}, 5000);
-  });
+  loadForm(loadProvincia);
 });
 
 function loadForm(callback){
@@ -23,8 +25,8 @@ function loadForm(callback){
     $("#domicilio_calle").val(data[1].fields.calle);
     $("#domicilio_numero").val(data[1].fields.numero);
     $("#persona_dni").val(data[0].pk);
-
-    callback.call();
+    
+    callback(data[3].pk,data[2].pk, init);
 
   });
   
@@ -33,12 +35,13 @@ function loadForm(callback){
 $(function(){
   $("form").validate();
   $("form").on("submit",function(e){
+    showMiniLoading();
     e.preventDefault();
     if($(this).valid()){
       var id = getURL_Id();
       var request = $.ajax({
         url: "/persona/json/edit/" + id + "/",
-        type: "PUT",
+        type: "POST",
         data: $( this ).serialize(),
         dataType: "json"
       });
@@ -47,12 +50,13 @@ $(function(){
         $(".alert p").text(msg.mensaje);
         if(msg.respuesta){
         	$(".alert").hide();
-        	window.location = "../?status=true&operation=edit";
+        	window.location = "../../?status=true&operation=edit";
         }else{
           $(".alert").removeClass("alert-success");
           $(".alert").addClass("alert-danger");
           $(".alert").show();
           $('html, body').animate({scrollTop : 0},800);
+          hideMiniLoading();
         }
       });
 
@@ -62,7 +66,36 @@ $(function(){
         $(".alert").addClass("alert-danger");
         $(".alert").show();
         $('html, body').animate({scrollTop : 0},800);
+        hideMiniLoading();
       });
     }
   });
+  $("#domicilio_provincia").on("change",function(){
+    loadLocalidad($(this).val());
+    showMiniLoading();
+  });
 });
+function loadProvincia(provincia, localidad, callback){
+  
+  $.getJSON("/persona/json/list/provincia/", function(data){
+    $.each(data, function(index, item){
+      $("#domicilio_provincia").append('<option value="'+item.pk+'" >'+item.fields.nombre+'</option>');
+    });
+    $("#domicilio_provincia").val(provincia);
+    loadLocalidad(provincia,localidad, callback);
+  });
+}
+
+function loadLocalidad(provincia,localidad,callback){
+  $("#domicilio_localidad").empty();
+  $.getJSON("/persona/json/list/localidad/" + provincia  + "/", function(data){
+      $.each(data, function(index, item){
+        $("#domicilio_localidad").append('<option value="'+item.pk+'" >'+item.fields.nombre+'</option>');
+      });
+      $("#domicilio_localidad").val(localidad);
+      hideMiniLoading();
+      if(callback){
+        callback.call();    
+      }
+    });
+}

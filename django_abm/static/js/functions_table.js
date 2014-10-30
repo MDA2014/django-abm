@@ -1,8 +1,12 @@
 function cargarTabla(idTabla, data, callback){
 	$(idTabla + " tbody").empty();
-	jQuery.each(data,function(index, element){
-		$(idTabla + " tbody").append(element);
-	});
+  if(data.length > 0){
+    $.each(data,function(index, element){
+      $(idTabla + " tbody").append(element);
+    });  
+  }else{
+   tablaVacia(idTabla , 5); 
+  }
 	if(callback){
 		callback();
 	}
@@ -17,4 +21,8 @@ function getTabla(url, callback){
 		});
 		callback(tabla);
 	});
+}
+
+function tablaVacia(idtabla, cant_col){
+  $(idtabla + " tbody").html('<tr><td class="text-center" colspan="'+ cant_col +'">No se ha encontrado ningún elemento.</td></tr>');
 }

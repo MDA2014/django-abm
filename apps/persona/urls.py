@@ -20,6 +20,16 @@ urlpatterns = patterns('',
         name  = 'view_personas_json'
     ),
     url(
+        regex = r'^json/list/localidad/(?P<provincia_id>[\d]+)/$',
+        view  = views.list_localidades_json,
+        name  = 'view_localidades_json'
+    ),
+    url(
+        regex = r'^json/list/provincia/$',
+        view  = views.list_provincias_json,
+        name  = 'view_provincias_json'
+    ),
+    url(
         regex = r'^new/$',
         view  = views.new_personas_view,
         name  = 'new_persona'

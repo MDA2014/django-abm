@@ -13,11 +13,14 @@ $(function(){
 });
 
 $(function(){
-	$("#delete_persona").on("click",function(){
+	$("form").on("submit",function(e){
+    e.preventDefault();
+    showMiniLoading();
 		var id = getURL_Id();
 		var request = $.ajax({
         url: "/persona/json/delete/" + id + "/",
-        type: "DELETE",
+        type: "POST",
+        data: $( this ).serialize(),
         dataType: "json"
       });
 
@@ -25,12 +28,13 @@ $(function(){
         $(".alert p").text(msg.mensaje);
         if(msg.respuesta){
           $(".alert").hide();
-          window.location = "../?status=true&operation=delete";
+          window.location = "../../?status=true&operation=delete";
         }else{
           $(".alert").removeClass("alert-success");
           $(".alert").addClass("alert-danger");
           $(".alert").show();
           $('html, body').animate({scrollTop : 0},800);
+          hideMiniLoading();
         }
       });
 
@@ -40,6 +44,7 @@ $(function(){
         $(".alert").addClass("alert-danger");
         $(".alert").show();
         $('html, body').animate({scrollTop : 0},800);
+        hideMiniLoading();
       });
 	});
 });
@@ -52,7 +57,7 @@ function loadInfo(callback){
 
     $("#persona_nombre").text(data[0].fields.nombre);
     $("#persona_apellido").text(data[0].fields.apellido);
-    $("#persona_edad").text(data[0].fields.edad);
+    $("#persona_dni").text(data[0].pk);
 
     callback.call();
 

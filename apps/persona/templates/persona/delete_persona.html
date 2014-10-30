@@ -25,9 +25,16 @@
 	</ol>
 	<h1>¿Desea realiazar la eliminación?</h1>
 	<div class="botonera" >
-      <button id="delete_persona" class="btn btn-danger ">Eliminar</button>
-      <a href="/persona/" class="btn btn-default">Atrás</a>
-    </div>
+    <form action="#" role="form">
+        {% csrf_token %}
+        <button id="delete_persona" class="btn btn-danger ">Eliminar</button>
+        <a href="/persona/" class="btn btn-default">Atrás</a>
+    </form>
+  </div>
+  <div class="alert" role="alert">
+    <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    <p></p>
+  </div>
 
     <div class="panel panel-default">
 	    <div class="panel-heading">
@@ -35,6 +42,10 @@
 	    </div>
 	    <div class="panel-body">
 			<ul class="listado_atributos">
+        <li class="col-sm-12">
+					<label class="col-sm-1 control-label">D.N.I.:</label>
+        			<p class="col-sm-8" id="persona_dni"></p>
+				</li>
 				<li class="col-sm-12">
 					<label class="col-sm-1 control-label">Nombre:</label>
         			<p class="col-sm-8" id="persona_nombre"></p>
@@ -42,10 +53,6 @@
 				<li class="col-sm-12">
 					<label class="col-sm-1 control-label">Apellido:</label>
         			<p class="col-sm-8" id="persona_apellido"></p>
-				</li>
-				<li class="col-sm-12">
-					<label class="col-sm-1 control-label">Edad:</label>
-        			<p class="col-sm-8" id="persona_edad"></p>
 				</li>
 			</ul>
 	    </div>
