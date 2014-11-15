@@ -68,6 +68,8 @@ $(function(){
         $('html, body').animate({scrollTop : 0},800);
         hideMiniLoading();
       });
+    }else{
+      hideMiniLoading();
     }
   });
   $("#domicilio_provincia").on("change",function(){
